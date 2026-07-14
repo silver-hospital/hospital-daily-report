@@ -62,11 +62,21 @@ a:hover { text-decoration: underline; }
 .month-card.inactive .month-status { color: #ccc; }
 .chart-row { display: flex; flex-wrap: wrap; gap: 14px; }
 .chart-row .card { flex: 1 1 100%; margin-bottom: 0; }
+.cal-day { display:block; border-radius:8px; padding:8px 4px; text-decoration:none; color:inherit; transition:all .15s; }
+.cal-day.has-data { background:#e8f0fe; cursor:pointer; }
+.cal-day.has-data:hover { background:#d2e3fc; transform:scale(1.05); }
+.cal-day.no-data { background:#f8f9fa; color:#ccc; }
+.cal-num { display:block; font-size:14px; font-weight:700; }
+.cal-rev { display:block; font-size:10px; color:#555; margin-top:2px; }
+.cal-day.has-data:hover .cal-rev { color:#1a73e8; }
 @media (min-width: 601px) {
   .kpi-card { flex: 1; padding: 18px 20px; }
   .kpi-card .value { font-size: 26px; }
   .month-grid { grid-template-columns: repeat(6, 1fr); gap: 14px; }
   .header h1 { font-size: 26px; }
+  .cal-day { padding: 10px 6px; }
+  .cal-num { font-size: 16px; }
+  .cal-rev { font-size: 11px; }
 }
 </style>
 </head>
@@ -75,23 +85,25 @@ a:hover { text-decoration: underline; }
 
 <div class="header">
   <h1>🏥 银丰医院 2026年经营总览</h1>
-  <div class="sub">数据截至 2026年7月12日 | 开业第3个月</div>
+  <div class="sub">数据截至 2026年7月12日</div>
 </div>
 
 <div class="breadcrumb">📍 首页 &gt; 2026年</div>
 
+
+
 <div class="kpi-row">
   <div class="kpi-card">
     <div class="label">年度累计营收</div>
-    <div class="value">6339.53<span class="unit"> 万</span></div>
+    <div class="value">6287.72<span class="unit"> 万</span></div>
   </div>
   <div class="kpi-card">
     <div class="label">月均营收</div>
-    <div class="value">905.65<span class="unit"> 万</span></div>
+    <div class="value">898.25<span class="unit"> 万</span></div>
   </div>
   <div class="kpi-card">
     <div class="label">日均营收</div>
-    <div class="value">32.68<span class="unit"> 万</span></div>
+    <div class="value">32.58<span class="unit"> 万</span></div>
   </div>
   <div class="kpi-card">
     <div class="label">已完成月数</div>
@@ -104,94 +116,75 @@ a:hover { text-decoration: underline; }
   <div id="monthTrend" class="chart-box"></div>
 </div>
 
+<!-- 1-6月：月度卡片 -->
 <div class="card">
-  <h2>📅 月度导航</h2>
+  <h2>📅 月度汇总（1-6月）</h2>
   <div class="month-grid">
-    
-        <div class="month-card active">
-          <a href="01.html">
-            <div class="month-num">1月</div>
-            <div class="month-rev">680.1万</div>
-            <div class="month-status">✓ 已出</div>
-          </a>
-        </div>
-        <div class="month-card active">
-          <a href="02.html">
-            <div class="month-num">2月</div>
-            <div class="month-rev">617.56万</div>
-            <div class="month-status">✓ 已出</div>
-          </a>
-        </div>
-        <div class="month-card active">
-          <a href="03.html">
-            <div class="month-num">3月</div>
-            <div class="month-rev">1208.38万</div>
-            <div class="month-status">✓ 已出</div>
-          </a>
-        </div>
-        <div class="month-card active">
-          <a href="04.html">
-            <div class="month-num">4月</div>
-            <div class="month-rev">1183.37万</div>
-            <div class="month-status">✓ 已出</div>
-          </a>
-        </div>
-        <div class="month-card active">
-          <a href="05.html">
-            <div class="month-num">5月</div>
-            <div class="month-rev">990.87万</div>
-            <div class="month-status">✓ 已出</div>
-          </a>
-        </div>
-        <div class="month-card active">
-          <a href="06.html">
-            <div class="month-num">6月</div>
-            <div class="month-rev">1078.7万</div>
-            <div class="month-status">✓ 已出</div>
-          </a>
-        </div>
-        <div class="month-card active">
-          <a href="07.html">
-            <div class="month-num">7月</div>
-            <div class="month-rev">580.55万</div>
-            <div class="month-status">✓ 已出</div>
-          </a>
-        </div>
-        <div class="month-card inactive">
-          <span>
-            <div class="month-num">8月</div>
-            <div class="month-rev">—</div>
-            <div class="month-status">未出</div>
-          </span>
-        </div>
-        <div class="month-card inactive">
-          <span>
-            <div class="month-num">9月</div>
-            <div class="month-rev">—</div>
-            <div class="month-status">未出</div>
-          </span>
-        </div>
-        <div class="month-card inactive">
-          <span>
-            <div class="month-num">10月</div>
-            <div class="month-rev">—</div>
-            <div class="month-status">未出</div>
-          </span>
-        </div>
-        <div class="month-card inactive">
-          <span>
-            <div class="month-num">11月</div>
-            <div class="month-rev">—</div>
-            <div class="month-status">未出</div>
-          </span>
-        </div>
-        <div class="month-card inactive">
-          <span>
-            <div class="month-num">12月</div>
-            <div class="month-rev">—</div>
-            <div class="month-status">未出</div>
-          </span>
-        </div>
+    <div class="month-card active"><a href="01.html"><div class="month-num">1月</div><div class="month-rev">680.1万</div><div class="month-status">✓ 已出</div></a></div>
+    <div class="month-card active"><a href="02.html"><div class="month-num">2月</div><div class="month-rev">617.56万</div><div class="month-status">✓ 已出</div></a></div>
+    <div class="month-card active"><a href="03.html"><div class="month-num">3月</div><div class="month-rev">1208.38万</div><div class="month-status">✓ 已出</div></a></div>
+    <div class="month-card active"><a href="04.html"><div class="month-num">4月</div><div class="month-rev">1183.37万</div><div class="month-status">✓ 已出</div></a></div>
+    <div class="month-card active"><a href="05.html"><div class="month-num">5月</div><div class="month-rev">990.87万</div><div class="month-status">✓ 已出</div></a></div>
+    <div class="month-card active"><a href="06.html"><div class="month-num">6月</div><div class="month-rev">1078.7万</div><div class="month-status">✓ 已出</div></a></div>
+  </div>
+</div>
+
+<!-- 7月：日历网格 -->
+<div class="card">
+  <h2>📆 7月日报（截至12日）<a href="07.html" style="float:right;font-size:12px;font-weight:400">查看7月汇总 →</a></h2>
+  <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center">
+    <div style="font-size:11px;color:#888;padding:4px">一</div>
+    <div style="font-size:11px;color:#888;padding:4px">二</div>
+    <div style="font-size:11px;color:#888;padding:4px">三</div>
+    <div style="font-size:11px;color:#888;padding:4px">四</div>
+    <div style="font-size:11px;color:#888;padding:4px">五</div>
+    <div style="font-size:11px;color:#888;padding:4px">六</div>
+    <div style="font-size:11px;color:#888;padding:4px">日</div>
+    <!-- 7月1日是周三，前两格空 -->
+    <div></div><div></div>
+    <a href="0701.html" class="cal-day has-data"><span class="cal-num">1</span><span class="cal-rev">45.9万</span></a>
+    <a href="0702.html" class="cal-day has-data"><span class="cal-num">2</span><span class="cal-rev">41.2万</span></a>
+    <a href="0703.html" class="cal-day has-data"><span class="cal-num">3</span><span class="cal-rev">37.9万</span></a>
+    <a href="0704.html" class="cal-day has-data"><span class="cal-num">4</span><span class="cal-rev">38.1万</span></a>
+    <a href="0705.html" class="cal-day has-data"><span class="cal-num">5</span><span class="cal-rev">36.4万</span></a>
+    <a href="0706.html" class="cal-day has-data"><span class="cal-num">6</span><span class="cal-rev">53.8万</span></a>
+    <a href="0707.html" class="cal-day has-data"><span class="cal-num">7</span><span class="cal-rev">54.7万</span></a>
+    <a href="0708.html" class="cal-day has-data"><span class="cal-num">8</span><span class="cal-rev">48.4万</span></a>
+    <a href="0709.html" class="cal-day has-data"><span class="cal-num">9</span><span class="cal-rev">42.1万</span></a>
+    <a href="0710.html" class="cal-day has-data"><span class="cal-num">10</span><span class="cal-rev">50.5万</span></a>
+    <a href="0711.html" class="cal-day has-data"><span class="cal-num">11</span><span class="cal-rev">48.6万</span></a>
+    <a href="0712.html" class="cal-day has-data"><span class="cal-num">12</span><span class="cal-rev">31.1万</span></a>
+    <div class="cal-day no-data"><span class="cal-num">13</span></div>
+    <div class="cal-day no-data"><span class="cal-num">14</span></div>
+    <div class="cal-day no-data"><span class="cal-num">15</span></div>
+    <div class="cal-day no-data"><span class="cal-num">16</span></div>
+    <div class="cal-day no-data"><span class="cal-num">17</span></div>
+    <div class="cal-day no-data"><span class="cal-num">18</span></div>
+    <div class="cal-day no-data"><span class="cal-num">19</span></div>
+    <div class="cal-day no-data"><span class="cal-num">20</span></div>
+    <div class="cal-day no-data"><span class="cal-num">21</span></div>
+    <div class="cal-day no-data"><span class="cal-num">22</span></div>
+    <div class="cal-day no-data"><span class="cal-num">23</span></div>
+    <div class="cal-day no-data"><span class="cal-num">24</span></div>
+    <div class="cal-day no-data"><span class="cal-num">25</span></div>
+    <div class="cal-day no-data"><span class="cal-num">26</span></div>
+    <div class="cal-day no-data"><span class="cal-num">27</span></div>
+    <div class="cal-day no-data"><span class="cal-num">28</span></div>
+    <div class="cal-day no-data"><span class="cal-num">29</span></div>
+    <div class="cal-day no-data"><span class="cal-num">30</span></div>
+    <div class="cal-day no-data"><span class="cal-num">31</span></div>
+  </div>
+</div>
+
+<!-- 8-12月：未解锁 -->
+<div class="card">
+  <h2>📅 待解锁</h2>
+  <div class="month-grid">
+    <div class="month-card inactive"><span><div class="month-num">8月</div><div class="month-status">未出</div></span></div>
+    <div class="month-card inactive"><span><div class="month-num">9月</div><div class="month-status">未出</div></span></div>
+    <div class="month-card inactive"><span><div class="month-num">10月</div><div class="month-status">未出</div></span></div>
+    <div class="month-card inactive"><span><div class="month-num">11月</div><div class="month-status">未出</div></span></div>
+    <div class="month-card inactive"><span><div class="month-num">12月</div><div class="month-status">未出</div></span></div>
   </div>
 </div>
 
@@ -253,11 +246,11 @@ a:hover { text-decoration: underline; }
       </tr>
       <tr style="background:#e8f0fe">
         <td><a href="07.html">7月</a> <span style="font-size:10px;color:#1a73e8">📊截至12日</span></td>
-        <td><b>580.55</b></td>
+        <td><b>528.74</b></td>
         <td>—</td>
         <td>—</td>
         <td>—</td>
-        <td>44.66</td>
+        <td>44.06</td>
       </tr>
     </tbody>
   </table>
@@ -271,7 +264,7 @@ a:hover { text-decoration: underline; }
 <script>
 var chart = echarts.init(document.getElementById('monthTrend'));
 var months = ['1月','2月','3月','4月','5月','6月','7月\n(截至12日)'];
-var revs = [680.1, 617.56, 1208.38, 1183.37, 990.87, 1078.7, 580.55];
+var revs = [680.1, 617.56, 1208.38, 1183.37, 990.87, 1078.7, 528.74];
 var target = [null, null, null, null, null, null, 1300];
 chart.setOption({
   tooltip: { trigger: 'axis', formatter: function(p) { return p[0].name + '<br/>' + p.map(function(s){ return s.marker + s.seriesName + ': ' + (s.value ? s.value+'万' : '—'); }).join('<br/>'); } },
