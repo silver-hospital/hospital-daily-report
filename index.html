@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>银丰医院经营日报 - 汇总</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f7fa; color: #333; padding: 12px; }
+.container { max-width: 1000px; margin: 0 auto; }
+.summary { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.summary-card { flex: 1 1 calc(33% - 8px); min-width: 140px; background: #fff; border-radius: 10px; padding: 16px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.summary-card .label { font-size: 11px; color: #888; margin-bottom: 4px; }
+.summary-card .val { font-size: 20px; font-weight: 700; color: #1a73e8; }
+.summary-card .unit { font-size: 12px; color: #888; }
+.card { background: #fff; border-radius: 10px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.card h2 { font-size: 15px; font-weight: 600; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #f0f0f0; }
+th { background: #f8f9fa; font-weight: 600; color: #555; font-size: 12px; position: sticky; top: 0; }
+tr:hover { background: #f8f9fa; }
+a { color: #1a73e8; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.up { color: #34a853; }
+.down { color: #ea4335; }
+.footer { text-align: center; font-size: 11px; color: #aaa; padding: 12px 0; }
+.chart-box { width: 100%; height: 300px; }
+@media (min-width: 601px) {
+  body { padding: 20px; }
+  .card { padding: 20px 24px; }
+  .summary-card { flex: 1; padding: 18px 20px; }
+  .summary-card .val { font-size: 24px; }
+}
+@media (max-width: 600px) {
+  .summary-card { flex: 1 1 calc(50% - 6px); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="summary">
+  <div class="summary-card">
+    <div class="label">7月累计营收</div>
+    <div class="val">580.54<span class="unit"> 万</span></div>
+  </div>
+  <div class="summary-card">
+    <div class="label">月度目标</div>
+    <div class="val">1300<span class="unit"> 万</span></div>
+  </div>
+  <div class="summary-card">
+    <div class="label">达成率</div>
+    <div class="val">44.7<span class="unit"> %</span></div>
+  </div>
+  <div class="summary-card">
+    <div class="label">报告天数</div>
+    <div class="val">13<span class="unit"> 天</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📈 累计营收趋势</h2>
+  <div id="indexChart" class="chart-box"></div>
+</div>
+
+<div class="card">
+  <h2>📋 每日数据明细</h2>
+  <table>
+    <thead>
+      <tr><th>日期</th><th>日营收(万)</th><th>累计(万)</th><th>达成率</th><th>时间进度</th><th>差距</th></tr>
+    </thead>
+    <tbody>
+    <tr><td><a href='0629.html'>6/29 周一</a></td><td>77.78</td><td>77.78</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td><a href='0630.html'>6/30 周二</a></td><td>35.87</td><td>113.65</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td><a href='0701.html'>7/01 周三</a></td><td>45.9</td><td>45.9</td><td>3.5%</td><td>3.2%</td><td class='up'>✅+0.3pp</td></tr>
+    <tr><td><a href='0702.html'>7/02 周四</a></td><td>41.17</td><td>87.07</td><td>6.7%</td><td>6.5%</td><td class='up'>✅+0.2pp</td></tr>
+    <tr><td><a href='0703.html'>7/03 周五</a></td><td>37.92</td><td>124.98</td><td>9.6%</td><td>9.7%</td><td class='down'>⚠️-0.1pp</td></tr>
+    <tr><td><a href='0704.html'>7/04 周六</a></td><td>38.08</td><td>163.06</td><td>12.5%</td><td>12.9%</td><td class='down'>⚠️-0.4pp</td></tr>
+    <tr><td><a href='0705.html'>7/05 周日</a></td><td>36.42</td><td>199.48</td><td>15.3%</td><td>16.1%</td><td class='down'>⚠️-0.8pp</td></tr>
+    <tr><td><a href='0706.html'>7/06 周一</a></td><td>53.81</td><td>253.28</td><td>19.5%</td><td>19.4%</td><td class='up'>✅+0.1pp</td></tr>
+    <tr><td><a href='0707.html'>7/07 周二</a></td><td>54.72</td><td>308.0</td><td>23.7%</td><td>22.6%</td><td class='up'>✅+1.1pp</td></tr>
+    <tr><td><a href='0708.html'>7/08 周三</a></td><td>48.41</td><td>356.41</td><td>27.4%</td><td>25.8%</td><td class='up'>✅+1.6pp</td></tr>
+    <tr><td><a href='0709.html'>7/09 周四</a></td><td>42.14</td><td>398.55</td><td>30.7%</td><td>29.0%</td><td class='up'>✅+1.7pp</td></tr>
+    <tr><td><a href='0710.html'>7/10 周五</a></td><td>50.48</td><td>449.03</td><td>34.5%</td><td>32.3%</td><td class='up'>✅+2.2pp</td></tr>
+    <tr><td><a href='0711.html'>7/11 周六</a></td><td>48.62</td><td>497.65</td><td>38.3%</td><td>35.5%</td><td class='up'>✅+2.8pp</td></tr>
+    <tr><td><a href='0712.html'>7/12 周日</a></td><td>31.07</td><td>528.72</td><td>40.7%</td><td>38.7%</td><td class='up'>✅+2.0pp</td></tr>
+    <tr><td><a href='0713.html'>7/13 周一</a></td><td>51.81</td><td>580.54</td><td>44.7%</td><td>41.9%</td><td class='up'>✅+2.8pp</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">银丰医院经营日报汇总 | 数据更新：13日</div>
+
+</div>
+
+<script>
+var chart = echarts.init(document.getElementById('indexChart'));
+var dates = ["7/1", "7/2", "7/3", "7/4", "7/5", "7/6", "7/7", "7/8", "7/9", "7/10", "7/11", "7/12", "7/13"];
+var cumData = [45.9, 87.07, 124.98, 163.06, 199.48, 253.28, 308.0, 356.41, 398.55, 449.03, 497.65, 528.72, 580.54];
+var targetLine = [1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300];
+chart.setOption({
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['累计营收', '月度目标'], top: 5 },
+  grid: { left: 50, right: 30, bottom: 35, top: 45 },
+  xAxis: { type: 'category', data: dates },
+  yAxis: { type: 'value', name: '万元' },
+  series: [
+    { name: '累计营收', type: 'line', data: cumData, smooth: true,
+      lineStyle: { width: 3, color: '#1a73e8' }, itemStyle: { color: '#1a73e8' },
+      areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(26,115,232,0.2)'},{offset:1,color:'rgba(26,115,232,0.02)'}]) },
+      label: { show: true, fontSize: 10, color: '#1a73e8' }
+    },
+    { name: '月度目标', type: 'line', data: targetLine,
+      lineStyle: { width: 2, type: 'dashed', color: '#ea4335' }, itemStyle: { color: '#ea4335' }, symbol: 'none'
+    }
+  ]
+});
+</script>
+</body>
+</html>
