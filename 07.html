@@ -71,7 +71,7 @@ a:hover { text-decoration: underline; }
 <div class="header">
   <a href="index.html" class="nav-back">← 年度总览</a>
   <h1>银丰医院 7月经营汇总</h1>
-  <div class="meta">2026年7月 | 截至7月12日（共12天）</div>
+  <div class="meta">2026年7月 | 截至7月12日（共13天）</div>
 </div>
 
 <div class="breadcrumb"><a href="index.html">首页</a> &gt; <a href="index.html">2026年</a> &gt; 7月</div>
@@ -84,7 +84,7 @@ a:hover { text-decoration: underline; }
 <div class="kpi-row">
   <div class="kpi-card">
     <div class="label">7月累计营收</div>
-    <div class="value">528.74<span class="unit"> 万</span></div>
+    <div class="value">580.55<span class="unit"> 万</span></div>
   </div>
   <div class="kpi-card">
     <div class="label">月度目标</div>
@@ -92,11 +92,11 @@ a:hover { text-decoration: underline; }
   </div>
   <div class="kpi-card">
     <div class="label">达成率</div>
-    <div class="value">40.7<span class="unit"> %</span></div>
+    <div class="value">44.7<span class="unit"> %</span></div>
   </div>
   <div class="kpi-card">
     <div class="label">日均营收</div>
-    <div class="value">44.06<span class="unit"> 万</span></div>
+    <div class="value">44.66<span class="unit"> 万</span></div>
   </div>
 </div>
 
@@ -130,6 +130,7 @@ a:hover { text-decoration: underline; }
     <tr><td><a href="0710.html">7/10 周五</a></td><td>50.48</td><td>449.05</td><td>34.5%</td><td>32.3%</td><td><span class='up'>✅+2.2pp</span></td></tr>
     <tr><td><a href="0711.html">7/11 周六</a></td><td>48.62</td><td>497.67</td><td>38.3%</td><td>35.5%</td><td><span class='up'>✅+2.8pp</span></td></tr>
     <tr><td><a href="0712.html">7/12 周日</a></td><td>31.07</td><td>528.74</td><td>40.7%</td><td>38.7%</td><td><span class='up'>✅+2pp</span></td></tr>
+    <tr><td><a href="0713.html">7/13 周一</a></td><td>51.81</td><td>580.55</td><td>44.7%</td><td>41.9%</td><td><span class='up'>✅+2.7pp</span></td></tr>
     </tbody>
   </table>
   </div>
@@ -158,15 +159,15 @@ cumChart.setOption({
   tooltip: { trigger: 'axis' },
   legend: { data: ['累计营收', '月度目标'], top: 5 },
   grid: { left: 50, right: 30, bottom: 35, top: 45 },
-  xAxis: { type: 'category', data: ["7/1", "7/2", "7/3", "7/4", "7/5", "7/6", "7/7", "7/8", "7/9", "7/10", "7/11", "7/12"] },
+  xAxis: { type: 'category', data: ["7/1", "7/2", "7/3", "7/4", "7/5", "7/6", "7/7", "7/8", "7/9", "7/10", "7/11", "7/12", "7/13"] },
   yAxis: { type: 'value', name: '万元' },
   series: [
-    { name: '累计营收', type: 'line', data: [45.9, 87.07, 124.99, 163.07, 199.49, 253.3, 308.02, 356.43, 398.57, 449.05, 497.67, 528.74], smooth: true,
+    { name: '累计营收', type: 'line', data: [45.9, 87.07, 124.99, 163.07, 199.49, 253.3, 308.02, 356.43, 398.57, 449.05, 497.67, 528.74, 580.55], smooth: true,
       lineStyle: { width: 3, color: '#1a73e8' }, itemStyle: { color: '#1a73e8' },
       areaStyle: { color: new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(26,115,232,0.2)'},{offset:1,color:'rgba(26,115,232,0.02)'}]) },
       label: { show: !isMobile(), fontSize: 10, color: '#1a73e8' }
     },
-    { name: '月度目标', type: 'line', data: [1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300],
+    { name: '月度目标', type: 'line', data: [1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300, 1300],
       lineStyle: { width: 2, type: 'dashed', color: '#ea4335' }, itemStyle: { color: '#ea4335' }, symbol: 'none'
     }
   ]
@@ -178,24 +179,24 @@ dailyChart.setOption({
   tooltip: { trigger: 'axis' },
   legend: { data: ['日营收', '目标日均', '日均'], top: 5 },
   grid: { left: 50, right: 30, bottom: 35, top: 45 },
-  xAxis: { type: 'category', data: ["7/1", "7/2", "7/3", "7/4", "7/5", "7/6", "7/7", "7/8", "7/9", "7/10", "7/11", "7/12"] },
+  xAxis: { type: 'category', data: ["7/1", "7/2", "7/3", "7/4", "7/5", "7/6", "7/7", "7/8", "7/9", "7/10", "7/11", "7/12", "7/13"] },
   yAxis: { type: 'value', name: '万元' },
   series: [
-    { name: '日营收', type: 'bar', data: [45.9, 41.17, 37.92, 38.08, 36.42, 53.81, 54.72, 48.41, 42.14, 50.48, 48.62, 31.07],
+    { name: '日营收', type: 'bar', data: [45.9, 41.17, 37.92, 38.08, 36.42, 53.81, 54.72, 48.41, 42.14, 50.48, 48.62, 31.07, 51.81],
       itemStyle: { borderRadius: [4,4,0,0], color: '#1a73e8' }, barMaxWidth: 30
     },
-    { name: '目标日均', type: 'line', data: [41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94],
+    { name: '目标日均', type: 'line', data: [41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94, 41.94],
       lineStyle: { width: 2, type: 'dashed', color: '#ea4335' }, itemStyle: { color: '#ea4335' }, symbol: 'none'
     },
-    { name: '日均', type: 'line', data: [45.9, 43.53, 41.66, 40.77, 39.9, 42.22, 44.0, 44.55, 44.29, 44.9, 45.24, 44.06], smooth: true,
+    { name: '日均', type: 'line', data: [45.9, 43.53, 41.66, 40.77, 39.9, 42.22, 44.0, 44.55, 44.29, 44.9, 45.24, 44.06, 44.66], smooth: true,
       lineStyle: { width: 1.5, type: 'dotted', color: '#34a853' }, itemStyle: { color: '#34a853' }, symbol: 'none'
     }
   ]
 });
 
 // 科室TOP10
-var deptNames = ["健康管理中心", "肾内科", "中医康复二组", "泌尿外科", "神经内科", "急诊科", "中医康复科", "骨科", "神经肿瘤科", "腋臭项目"];
-var deptRevs = [15.07, 18.11, 18.41, 20.21, 28.7, 30.23, 45.69, 50.71, 89.2, 116.21];
+var deptNames = ["健康管理中心", "中医康复二组", "肾内科", "泌尿外科", "神经内科", "急诊科", "中医康复科", "骨科", "神经肿瘤科", "腋臭项目"];
+var deptRevs = [15.07, 20.32, 20.71, 23.38, 31.97, 34.5, 49.25, 53.25, 97.78, 130.42];
 var deptChart = echarts.init(document.getElementById('deptChart'));
 deptChart.setOption({
   tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
@@ -234,11 +235,11 @@ structChart.setOption({
     type: 'pie', radius: ['35%', '65%'], center: isMobile() ? ['50%', '40%'] : ['35%', '50%'],
     label: { show: false },
     data: [
-      { value: 120.73, name: '药品', itemStyle: { color: '#1a73e8' } },
-      { value: 94.76, name: '耗材', itemStyle: { color: '#4285f4' } },
-      { value: 61.41, name: '检查', itemStyle: { color: '#34a853' } },
-      { value: 97.38, name: '治疗', itemStyle: { color: '#fbbc04' } },
-      { value: 154.44, name: '其他', itemStyle: { color: '#9aa0a6' } }
+      { value: 132.31, name: '药品', itemStyle: { color: '#1a73e8' } },
+      { value: 102.85, name: '耗材', itemStyle: { color: '#4285f4' } },
+      { value: 68.27, name: '检查', itemStyle: { color: '#34a853' } },
+      { value: 106.6, name: '治疗', itemStyle: { color: '#fbbc04' } },
+      { value: 170.51, name: '其他', itemStyle: { color: '#9aa0a6' } }
     ]
   }]
 });
